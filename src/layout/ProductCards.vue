@@ -22,9 +22,30 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <div class="colors">
-            <div class="blue"></div>
-            <div class="purple"></div>
-            <div class="pink"></div>
+            <div class="blue" @click.prevent="setColor(item, 'blue')">
+              <img
+                src="../assets/pictures/White Check.svg"
+                alt="White Check"
+                class="color-check"
+                v-if="item.color === 'blue'"
+              />
+            </div>
+            <div class="purple" @click.prevent="setColor(item, 'purple')">
+              <img
+                src="../assets/pictures/White Check.svg"
+                alt="White Check"
+                class="color-check"
+                v-if="item.color === 'purple'"
+              />
+            </div>
+            <div class="pink" @click.prevent="setColor(item, 'pink')">
+              <img
+                src="../assets/pictures/White Check.svg"
+                alt="White Check"
+                class="color-check"
+                v-if="item.color === 'pink'"
+              />
+            </div>
           </div>
         </div>
         <div class="product-footer">
@@ -89,6 +110,7 @@
   margin-left: 21.5px;
   margin-right: 6px;
   float: left;
+  cursor: pointer;
 }
 .purple {
   height: 32px;
@@ -98,6 +120,7 @@
   margin-left: 6px;
   margin-right: 6px;
   float: left;
+  cursor: pointer;
 }
 .pink {
   height: 32px;
@@ -106,6 +129,7 @@
   background-color: #f6437d;
   margin-left: 6px;
   float: left;
+  cursor: pointer;
 }
 .product-footer {
   height: 69px;
@@ -127,6 +151,10 @@
   margin: 27px 89px 26px 89px;
   cursor: pointer;
 }
+.color-check {
+  margin-left: 4px;
+  margin-top: 2px;
+}
 </style>
 
 <script>
@@ -142,9 +170,14 @@ export default {
     this.fetchProducts();
   },
   methods: {
-    ...mapActions(["addItemToCart", "fetchProducts"]),
+    ...mapActions(["addItemToCart", "fetchProducts", "selectColor"]),
     getPic(item) {
       return "../assets/pictures" + item + ".jpg";
+    },
+    setColor(item, color) {
+      item.color = color;
+      // console.log(item.color);
+      this.selectColor();
     }
   }
 };

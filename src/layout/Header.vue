@@ -12,30 +12,52 @@
         <div v-show="showCart">
           <div class="cartDropDown" style="overflow: scroll;">
             <div class="cart-item" v-for="(item, idx) in getCart" :key="idx">
-              <div class="item-title">
-                <img
-                  class="pic"
-                  src="../assets/pictures/plant.jpg"
-                  alt="Plant"
-                  style="float: left; margin-left: 15px;"
-                />
-                <p
-                  class="cart-item-title"
-                  style="float: left; margin-left: 10px;"
-                >
-                  Lorem ipsum 1
-                </p>
-                <div class="cart-colors" style="float:left;">
-                  <div class="cart-blue"></div>
-                  <div class="cart-purple"></div>
-                  <div class="cart-pink"></div>
-                  <div class="remove"><p class="remove">REMOVE</p></div>
+              <div class="item-card" style="margin-top: 23px;">
+                <div class="item-pic">
+                  <img
+                    class="pic"
+                    :src="require('../assets/pictures/' + item.img + '.jpg')"
+                    :alt="item.name"
+                    style="float: left; margin-left: 15px;"
+                  />
+                </div>
+                <div class="item-text">
+                  <p
+                    class="cart-item-title"
+                    style="float: left; margin-left: 10px; margin-bottom: 0;"
+                  >
+                    Lorem ipsum 1
+                  </p>
+                  <div class="cart-blue">
+                    <img
+                      src="../assets/pictures/White Check.svg"
+                      alt="White Check"
+                      class="color-check"
+                      v-if="item.color === 'blue'"
+                    />
+                  </div>
+                  <div class="cart-purple">
+                    <img
+                      src="../assets/pictures/White Check.svg"
+                      alt="White Check"
+                      class="color-check"
+                      v-if="item.color === 'purple'"
+                    />
+                  </div>
+                  <div class="cart-pink">
+                    <img
+                      src="../assets/pictures/White Check.svg"
+                      alt="White Check"
+                      class="color-check"
+                      v-if="item.color === 'pink'"
+                    />
+                  </div>
                 </div>
               </div>
-              <div
-                class="line"
-                style="margin-top: 135px; margin-left: 21.5px;"
-              ></div>
+              <p class="remove" style="margin-left: 120px;">
+                REMOVE
+              </p>
+              <div class="line" style="margin-top: 85px; margin-left: 20px;" />
             </div>
           </div>
         </div>
@@ -155,10 +177,17 @@
   align-content: right;
   margin-left: 73%;
 }
+.cartDropDown::-webkit-scrollbar {
+  display: none;
+}
+.cart-item {
+  width: 300px;
+  height: 92px;
+}
 .pic {
   height: 92px;
   width: 95px;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 6px 6px;
 }
 .cart-item-title {
   height: 33px;
@@ -207,8 +236,6 @@
   font-family: "Open Sans";
   font-size: 13px;
   line-height: 24px;
-  margin-top: 2px;
-  margin-left: 5px;
 }
 .line {
   box-sizing: border-box;

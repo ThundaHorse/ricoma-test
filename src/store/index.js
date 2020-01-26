@@ -68,10 +68,21 @@ export default new Vuex.Store({
       } catch (e) {
         console.log(e);
       }
+    },
+    async selectColor({ commit }, item) {
+      try {
+        let cart = this.state.cart.map(i => {
+          this.state.cart.find(o => o.id === item.id) || i;
+        });
+        commit("setItem", cart);
+      } catch (e) {
+        console.log(e);
+      }
     }
   },
   mutations: {
     setItems: (state, products) => (state.products = products),
+    setItem: (state, product) => (state.product = product),
     setCart: (state, cart) => (state.cart = cart)
   }
 });
