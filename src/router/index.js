@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home.vue";
+import Home from "../views/Home.vue";
+import Mobile from "../views/Mobile.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +9,10 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import(/* webpackChunkName: "Home" */ "../views/Home.vue")
+    components: {
+      default: Home,
+      mobile: Mobile
+    }
   }
 ];
 

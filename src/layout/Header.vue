@@ -54,7 +54,11 @@
                   </div>
                 </div>
               </div>
-              <p class="remove" style="margin-left: 120px;">
+              <p
+                class="remove"
+                @click.prevent="removeFromCart(idx)"
+                style="margin-left: 120px; cursor: pointer;"
+              >
                 REMOVE
               </p>
               <div class="line" style="margin-top: 85px; margin-left: 20px;" />
@@ -267,7 +271,7 @@ export default {
     this.fetchCart();
   },
   methods: {
-    ...mapActions(["fetchCart"]),
+    ...mapActions(["fetchCart", "removeItem"]),
     hideTimer() {
       this.showTimer = false;
     },
@@ -280,6 +284,9 @@ export default {
     },
     toggle() {
       this.showCart = !this.showCart;
+    },
+    removeFromCart(i) {
+      this.getCart.splice(i, 1);
     }
   }
 };

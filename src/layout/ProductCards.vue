@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="product-footer">
-          <p class="addProductToCart" @click.prevent="addItemToCart(item)">
+          <p class="addProductToCart" @click.prevent="afterAdd(item)">
             Add To Cart
           </p>
         </div>
@@ -61,6 +61,13 @@
 <style>
 .productCards {
   height: 745px;
+}
+.card-deck {
+  overflow: scroll;
+  height: 100%;
+}
+.card-deck::-webkit-scrollbar {
+  display: none;
 }
 .product {
   box-sizing: border-box;
@@ -176,8 +183,11 @@ export default {
     },
     setColor(item, color) {
       item.color = color;
-      // console.log(item.color);
       this.selectColor();
+    },
+    afterAdd(item) {
+      this.addItemToCart(item);
+      alert(`Successfully added ${item.name} to the cart!`);
     }
   }
 };

@@ -23,7 +23,6 @@
 
 <style>
 .mainHero {
-  height: 850px;
   background: url("../assets/pictures/Hero Background.png") no-repeat center
     100%;
   background-size: cover;

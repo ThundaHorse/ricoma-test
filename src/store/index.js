@@ -31,13 +31,19 @@ export default new Vuex.Store({
         color: ""
       }
     ],
-    cart: []
+    cart: [],
+    isMobile: false
   },
   getters: {
+    getMobile: state => state.isMobile,
     getCart: state => state.cart,
     getProducts: state => state.products
   },
   actions: {
+    checkMobile({ commit }, win) {
+      //
+      commit("setMobile", win);
+    },
     async fetchProducts({ commit }) {
       try {
         let itemList = this.state.products.map(i => {
@@ -81,6 +87,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setMobile: (state, isMobile) => (state.isMobile = isMobile),
     setItems: (state, products) => (state.products = products),
     setItem: (state, product) => (state.product = product),
     setCart: (state, cart) => (state.cart = cart)
