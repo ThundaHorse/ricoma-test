@@ -23,6 +23,7 @@
 
 <style>
 .mainHero {
+  height: 705px;
   background: url("../assets/pictures/Hero Background.png") no-repeat center
     100%;
   background-size: cover;
@@ -76,10 +77,10 @@ p.buttonLorem {
   padding-bottom: 18px;
 }
 .topImage {
-  height: 700px;
-  width: 664px;
+  height: 650px;
+  width: 600px;
   position: absolute;
-  margin-top: 190px;
+  margin-top: 100px;
   align-content: right;
   margin-left: 55%;
 }
