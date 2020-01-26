@@ -41,7 +41,6 @@ export default new Vuex.Store({
   },
   actions: {
     checkMobile({ commit }, win) {
-      //
       commit("setMobile", win);
     },
     async fetchProducts({ commit }) {
@@ -51,7 +50,7 @@ export default new Vuex.Store({
         });
         commit("setItems", itemList);
       } catch (e) {
-        console.log(e);
+        return;
       }
     },
     async fetchCart({ commit }) {
@@ -61,7 +60,7 @@ export default new Vuex.Store({
         });
         commit("setCart", cartList);
       } catch (e) {
-        console.log(e);
+        return;
       }
     },
     async addItemToCart({ commit }, itemToAdd) {
@@ -72,7 +71,7 @@ export default new Vuex.Store({
         updatedCart.push(itemToAdd);
         commit("setCart", updatedCart);
       } catch (e) {
-        console.log(e);
+        return;
       }
     },
     async selectColor({ commit }, item) {
@@ -82,7 +81,7 @@ export default new Vuex.Store({
         });
         commit("setItem", cart);
       } catch (e) {
-        console.log(e);
+        return;
       }
     }
   },
