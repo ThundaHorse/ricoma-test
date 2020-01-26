@@ -1,7 +1,7 @@
 <template>
   <div class="mainFooter">
-    <footer id="footer" class="footer-1">
-      <div class="main-footer widgets-dark typo-light">
+    <footer id="footer" class="footer">
+      <div class="main-footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-3">
@@ -11,10 +11,28 @@
                 alt="liLogo"
               />
             </div>
-            <div
-              class="col-xs-12 col-sm-6 col-md-3"
-              style="padding-left: 117px; width: 132px;"
-            >
+            <div class="col-xs-12 col-sm-6 col-md-1 mt-4" style="width: 132px;">
+              <h5 class="link-title">Lorem Ipsum<span></span></h5>
+              <ul class="sub-links">
+                <li>
+                  <div class="sub-content">
+                    <span class="subLink">Lorem Ipsum</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="sub-content">
+                    <span class="subLink">Lorem Ipsum</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="sub-content">
+                    <span class="subLink">Lorem Ipsum</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-1 mt-4" style="width: 132px;">
               <div class="widget no-box">
                 <h5 class="link-title">Lorem Ipsum<span></span></h5>
                 <ul class="sub-links">
@@ -37,30 +55,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-3" style="width: 132px;">
-              <div class="widget no-box">
-                <h5 class="link-title">Lorem Ipsum<span></span></h5>
-                <ul class="sub-links">
-                  <li>
-                    <div class="sub-content">
-                      <span class="subLink">Lorem Ipsum</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="sub-content">
-                      <span class="subLink">Lorem Ipsum</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="sub-content">
-                      <span class="subLink">Lorem Ipsum</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-3" style="width: 132px;">
+            <div class="col-xs-12 col-sm-6 col-md-1 mt-4" style="width: 132px;">
               <div class="widget no-box">
                 <h5 class="link-title">Lorem Ipsum<span></span></h5>
                 <ul class="sub-links">
