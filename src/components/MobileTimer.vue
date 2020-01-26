@@ -1,86 +1,50 @@
 <template>
-  <div class="timer">
-    <div class="container">
-      <div class="row">
-        <div class="col-auto mr-auto" style="height: 50px;">
-          <h5 class="timer-lorem" style="padding-top: 10px;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </h5>
-        </div>
-        <div class="col" style="width: 24px;"></div>
-        <div class="col">
-          <div class="row h-25">
-            <div class="col-md-3 col-sm-3">
-              <p class="num">00</p>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <p class="num">{{ outputHours }}</p>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <p class="num">{{ outputMin }}</p>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <p class="num">{{ outputSec }}</p>
-            </div>
-            <!-- <div class="col h-50"><p class="days">days</p></div> -->
-          </div>
-          <div class="row h-25">
-            <div class="col-md-3 col-sm-3">
-              <p class="days">days</p>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <p class="hours">hours</p>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <p class="minutes">minutes</p>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <p class="seconds">seconds</p>
-            </div>
-            <!-- <div class="col h-50"><p class="days">days</p></div> -->
-          </div>
-        </div>
-        <div class="col-2"></div>
+  <div class="mobileTimer">
+    <div class="row">
+      <div class="col">
+        <p class="num">{{ outputDay }}<span class="day">days</span></p>
+      </div>
+      <div class="col">
+        <p class="num">{{ outputHours }} <span class="hour">hours</span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="num">{{ outputMin }} <span class="minutes">minutes</span></p>
+      </div>
+      <div class="col">
+        <p class="num">{{ outputSec }} <span class="seconds">seconds</span></p>
       </div>
     </div>
   </div>
 </template>
 
-<style>
-.timer {
-  height: 50px;
-  width: auto;
+<style scoped>
+.mobileTimer {
   background-color: #1f3162;
-}
-.timer-lorem {
-  height: 31px;
-  width: 436px;
-  color: rgba(255, 255, 255, 0.72);
-  font-family: Poppins;
-  font-size: 16px;
-  line-height: 31px;
+  width: 100%;
 }
 .num {
   height: 31px;
   width: 23px;
   color: #ffffff;
-  font-family: Poppins Bold;
+  font-family: Poppins;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 31px;
   text-align: center;
 }
-.days {
+.day {
   height: 21px;
   width: 30px;
   color: rgba(255, 255, 255, 0.72);
-  font-family: Poppins Regular;
+  font-family: Poppins;
   font-size: 12px;
   line-height: 21px;
   text-align: center;
 }
-.hours {
+.hour {
   height: 21px;
   width: 34px;
   color: rgba(255, 255, 255, 0.72);
@@ -111,10 +75,11 @@
 
 <script>
 export default {
-  name: "timer",
+  name: "mobileTimer",
   data: function() {
     return {
       outputTime: "00:00:00",
+      outputDay: "00",
       outputHours: "00",
       outputMin: "00",
       outputSec: "00",
