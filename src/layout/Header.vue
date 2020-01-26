@@ -9,6 +9,7 @@
     <Timer v-if="showTimer" />
     <div class="container-fluid">
       <div class="row" style="margin-top: 5px;">
+        <!-- Dropdown -->
         <div v-show="showCart">
           <div class="cartDropDown" style="overflow: scroll;">
             <div class="cart-item" v-for="(item, idx) in getCart" :key="idx">
@@ -65,6 +66,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-sm" style="margin-left: 73px;">
           <p class="header-lorem-ipsum">Lorem Ipsum</p>
         </div>
@@ -83,12 +85,17 @@
         <div class="col-sm">
           <p class="veniam">Veniam</p>
         </div>
+        <!-- Shopping Cart -->
         <div class="col-sm">
+          <div class="cartCount">
+            <span class="items-in-cart">{{ getCart.length }}</span>
+            <div class="cartOverlay"></div>
+          </div>
           <img
             src="../assets/pictures/Cart Icon.svg"
             alt="cart"
+            class="shoppingCartIcon"
             @click.prevent="toggle()"
-            style="height: 30px; width: 37px; margin-top: 5px;"
           />
         </div>
       </div>
@@ -105,6 +112,8 @@
   font-size: 24px;
   font-weight: 600;
   line-height: 41px;
+  position: absolute;
+  margin-top: 6px;
 }
 .lorem {
   height: 31px;
@@ -116,6 +125,9 @@
   letter-spacing: 3px;
   line-height: 31px;
   text-align: center;
+  position: absolute;
+  margin-top: 13px;
+  margin-left: 50px;
 }
 .ipsum {
   height: 31px;
@@ -127,6 +139,9 @@
   letter-spacing: 3px;
   line-height: 31px;
   text-align: center;
+  position: absolute;
+  margin-top: 13px;
+  margin-left: 50px;
 }
 .excepteur {
   height: 31px;
@@ -138,6 +153,8 @@
   letter-spacing: 3px;
   line-height: 31px;
   text-align: center;
+  position: absolute;
+  margin-top: 13px;
 }
 .consectetur {
   height: 31px;
@@ -149,6 +166,8 @@
   letter-spacing: 3px;
   line-height: 31px;
   text-align: center;
+  position: absolute;
+  margin-top: 13px;
 }
 .veniam {
   height: 31px;
@@ -160,6 +179,9 @@
   letter-spacing: 3px;
   line-height: 31px;
   text-align: center;
+  position: absolute;
+  margin-top: 13px;
+  margin-left: 20px;
 }
 .triangle {
   height: 6px;
@@ -247,6 +269,50 @@
   width: 266px;
   border: 1px solid #979797;
   opacity: 0.35;
+}
+.shoppingCartIcon {
+  height: 30px;
+  width: 37px;
+  /* z-index: 99999; */
+  margin-top: -20px;
+  justify-content: center;
+  position: relative;
+}
+.cartCount {
+  position: relative;
+  top: 5px;
+  padding: 0;
+  right: -22px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  z-index: 99999;
+  background-color: #d74179;
+}
+.cartOverlay {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  z-index: 99999;
+}
+.items-in-cart {
+  height: 24px;
+  width: 24px;
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2.14px;
+  line-height: 31px;
+  margin-left: 1.5px;
+  margin-top: -3px;
+  position: absolute;
+  text-align: center;
+}
+.overlayImage {
+  position: absolute;
+  top: -50px;
+  right: 15px;
 }
 </style>
 

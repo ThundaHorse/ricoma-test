@@ -3,25 +3,6 @@
     <MobileTimer />
     <nav class="navbar navbar-expand-lg bg-light">
       <p class="navbar-brand head-lorem" href="/">Lorem Ipsum</p>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#cartDropdown"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon">
-          <img
-            src="../../assets/pictures/Cart Icon.svg"
-            alt="cart"
-            style="	height: 30px;	width: 37px;"
-          />
-        </span>
-      </button>
-
       <button
         class="navbar-toggler"
         type="button"
@@ -36,33 +17,6 @@
           style="background-color: black;"
         ></span>
       </button>
-
-      <div
-        class="collapse navbar-collapse"
-        id="cartDropdown"
-        style="background-color: grey;"
-      >
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <p class="nav-link nav-lorem">
-              Lorem <span class="sr-only">(current)</span>
-            </p>
-          </li>
-          <li class="nav-item">
-            <p class="nav-link nav-ipsum">Ipsum</p>
-          </li>
-          <li class="nav-item">
-            <p class="nav-link nav-ipsum">Excepteur</p>
-          </li>
-          <li class="nav-item">
-            <p class="nav-link nav-ipsum">Consectetur</p>
-          </li>
-          <li class="nav-item">
-            <p class="nav-link nav-ipsum">Veniam</p>
-          </li>
-        </ul>
-      </div>
-
       <div
         class="collapse navbar-collapse"
         id="navbarText"
@@ -114,15 +68,26 @@
 
 <script>
 import MobileTimer from "../../components/MobileTimer";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
     MobileTimer
   },
   data: function() {
-    return {};
+    return {
+      showCart: false
+    };
   },
-  created: function() {},
-  methods: {}
+  computed: mapGetters(["getCart"]),
+  created() {
+    this.fetchCart();
+  },
+  methods: {
+    ...mapActions(["fetchCart", "removeItem"]),
+    toggle() {
+      this.showCart = !this.showCart;
+    }
+  }
 };
 </script>
