@@ -76,6 +76,9 @@ export default new Vuex.Store({
     },
     async selectColor({ commit }, item) {
       try {
+        // let cart = this.state.cart.map(i => {
+        //   this.state.cart.find(o => o.id === item.id) || i;
+        // });
         let cart = this.state.cart.map(i => {
           this.state.cart.find(o => o.id === item.id) || i;
         });
@@ -88,7 +91,7 @@ export default new Vuex.Store({
   mutations: {
     setMobile: (state, isMobile) => (state.isMobile = isMobile),
     setItems: (state, products) => (state.products = products),
-    setItem: (state, product) => (state.product = product),
+    setItem: (state, product) => (state.products[product] = product),
     setCart: (state, cart) => (state.cart = cart)
   }
 });

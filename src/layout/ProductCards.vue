@@ -22,28 +22,30 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <div class="colors">
-            <div class="blue" @click.prevent="setColor(item, 'blue')">
+            <div class="blue" @click.prevent="setColor(idx, item, 'blue')">
               <img
                 src="../assets/pictures/White Check.svg"
                 alt="White Check"
                 class="color-check"
-                v-if="item.color === 'blue'"
+                v-if="selected.color === 'blue' && selected.name === item.name"
               />
             </div>
-            <div class="purple" @click.prevent="setColor(item, 'purple')">
+            <div class="purple" @click.prevent="setColor(idx, item, 'purple')">
               <img
                 src="../assets/pictures/White Check.svg"
                 alt="White Check"
                 class="color-check"
-                v-if="item.color === 'purple'"
+                v-if="
+                  selected.color === 'purple' && selected.name === item.name
+                "
               />
             </div>
-            <div class="pink" @click.prevent="setColor(item, 'pink')">
+            <div class="pink" @click.prevent="setColor(idx, item, 'pink')">
               <img
                 src="../assets/pictures/White Check.svg"
                 alt="White Check"
                 class="color-check"
-                v-if="item.color === 'pink'"
+                v-if="selected.color === 'pink' && selected.name === item.name"
               />
             </div>
           </div>
@@ -170,7 +172,12 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "productCards",
   data: function() {
-    return {};
+    return {
+      selected: {
+        color: "",
+        name: ""
+      }
+    };
   },
   computed: mapGetters(["getProducts", "getCart"]),
   created() {
@@ -181,9 +188,17 @@ export default {
     getPic(item) {
       return "../assets/pictures" + item + ".jpg";
     },
-    setColor(item, color) {
-      item.color = color;
-      this.selectColor();
+    setColor(idx, prod, color) {
+      let itemToAdd = {
+        id: idx,
+        img: prod.img,
+        name: prod.name,
+        color: color
+      };
+      prod.color = color;
+      this.selected.color = color;
+      this.selected.name = prod.name;
+      this.selectColor(itemToAdd);
     },
     afterAdd(item) {
       this.addItemToCart(item);
